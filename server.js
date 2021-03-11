@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const {pool} = require("pg");
+const { Pool } = require("pg");
 require('dotenv').config();
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
@@ -27,3 +27,4 @@ pool.query(sql, function(err, result) {
 
 
 });   
+
