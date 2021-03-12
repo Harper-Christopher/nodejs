@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const router = express.Router();
 const { Pool } = require("pg");
 require('dotenv').config();
 const connectionString = process.env.DATABASE_URL;
@@ -45,22 +46,37 @@ function getCurrentLoggedInUserAccount() {
   }
 
 function getGuitar1() {
-var sql = "SELECT * FROM guitar WHERE guitarid = 1";
+// var sql = "SELECT * FROM guitar WHERE guitarid = 1";
 
-pool.query(sql, function(err, result) {
-    // If an error occurred...
+// pool.query(sql, function(err, result) {
+//     // If an error occurred...
+//     if (err) {
+//         console.log("Error in query: ")
+//         console.log(err);
+//     }
+
+//     // Log this to the console for debugging purposes.
+//     console.log("Back from DB with result:");
+//     console.log(result.rows);
+
+//     return result.rows;
+
+// }); 
+
+router.get('/guitar', function(req, res, next) {
+pool.connect(function(err, guitar, done) {
     if (err) {
-        console.log("Error in query: ")
-        console.log(err);
+        return console.error('error fetching data from pool', err);
     }
-
-    // Log this to the console for debugging purposes.
-    console.log("Back from DB with result:");
-    console.log(result.rows);
-
-    return result.rows;
-
-}); 
+    console.log("connected to database");
+    guitar.query('SELECT * FROM guitar WHERE guitarid = 1', function(err, result) {
+        done();
+        if (err) {
+            return console.error('error running query', err);
+        }
+        res.send(result);
+    })
+})})
 }  
 
 function getGuitar2() {
