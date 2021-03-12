@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSE 341 | Christopher Harper | BYU-Idaho </title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/small.css">
+  <link rel="stylesheet" href="css/middle.css">
+</head>
+
+<body>
+
+  <main>
+
+  <div class="cartLink">
+
+  
+<a href="cart.php">View Shopping Cart</a>
+
+  </div>
+
+  
+
+  <div class="flex">
+    <form action="browse.php" method="post">
+    <div class="guitarOne">
+      <img src="photos/guitarOne.jpg" alt="Guitar One">
+      <div class="priceButton">
+      <h2 class="h2Shadow"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=1') as $row){echo $row['guitarname'];}?></h2>
+      <p class="price"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=1') as $row){echo 'Price: $' . $row['price'];}?></p>
+      <input type="hidden" name="guitar1" value="Acoustic Guitar">
+      <input type="hidden" name="price1" value="700">
+      <input type="submit" value="Add To Cart" class="button">
+    </form>
+    </div>
+    </div>
+
+    <form action="browse.php" method="post">
+    <div class="guitarTwo">
+      <img src="photos/guitarTwo.jpg" alt="Guitar Two">
+      <div class="priceButton">
+      <h2 class="h2Shadow"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=2') as $row){echo $row['guitarname'];}?></h2>
+      <p class="price"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=2') as $row){echo 'Price: $' . $row['price'];}?></p>
+      <input type="hidden" name="guitar2" value="Electric Guitar">
+      <input type="hidden" name="price2" value="1200">
+      <input type="submit" value="Add To Cart" class="button">
+    </form>
+    </div>
+    </div>
+
+    <form action="browse.php" method="post">
+    <div class="guitarThree">
+      <img src="photos/guitarThree.jpg" alt="Guitar Three">
+      <div class="priceButton">
+      <h2 class="h2Shadow"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=3') as $row){echo $row['guitarname'];}?></h2>
+      <p class="price"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=3') as $row){echo 'Price: $' . $row['price'];}?></p>
+      <input type="hidden" name="guitar3" value="Fender Guitar">
+      <input type="hidden" name="price3" value="350">
+      <input type="submit" value="Add To Cart" class="button">
+    </form>
+    </div>
+    </div>
+  </div>
+
+  <div class="flex">
+  <form action="browse.php" method="post">
+    <div class="guitarFour">
+      <img src="photos/guitarFour.jpg" alt="Guitar Four">
+      <div class="priceButton">
+      <h2 class="h2Shadow"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=4') as $row){echo $row['guitarname'];}?></h2>
+      <p class="price"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=4') as $row){echo 'Price: $' . $row['price'];}?></p>
+      <input type="hidden" name="guitar4" value="Acoustic-Electric Guitar">
+      <input type="hidden" name="price4" value="400">
+      <input type="submit" value="Add To Cart" class="button">
+    </form>
+    </div>
+    </div>
+
+    <form action="browse.php" method="post">
+    <div class="guitarFive">
+      <img src="photos/guitarFive.jpg" alt="Guitar Five">
+      <div class="priceButton">
+      <h2 class="h2Shadow"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=5') as $row){echo $row['guitarname'];}?></h2>
+      <p class="price"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=5') as $row){echo 'Price: $' . $row['price'];}?></p>
+      <input type="hidden" name="guitar5" value="Classical Guitar">
+      <input type="hidden" name="price5" value="250">
+      <input type="submit" value="Add To Cart" class="button">
+    </form>
+    </div>
+    </div>
+
+    <form action="browse.php" method="post">
+    <div class="guitarSix">
+      <img src="photos/guitarSix.jpg" alt="Guitar Six">
+      <div class="priceButton">
+      <h2 class="h2Shadow"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=6') as $row){echo $row['guitarname'];}?></h2>
+      <p class="price"><?php foreach ($db->query('SELECT * FROM guitar WHERE guitarid=6') as $row){echo 'Price: $' . $row['price'];}?></p>
+      <input type="hidden" name="guitar6" value="Gibson Guitar">
+      <input type="hidden" name="price6" value="900">
+      <input type="submit" value="Add To Cart" class="button">
+    </form>
+    </div>
+    </div>
+  </div>
+  </main>
+
+</body>
+
+</html>
