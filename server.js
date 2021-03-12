@@ -3,7 +3,10 @@ const app = express();
 const { Pool } = require("pg");
 require('dotenv').config();
 const connectionString = process.env.DATABASE_URL;
-const pool = new Pool({connectionString: connectionString});
+const pool = new Pool({connectionString: connectionString,
+ssl: {
+    rejectUnauthorized: false
+}});
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -27,6 +30,8 @@ app.post("/guitars", function(req, res) {
     guitar6 = getGuitar6();
     var params = {guitar1: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6};
 
+    // console.log(guitar1);
+
     res.render("guitars", params);
 });
 
@@ -47,6 +52,7 @@ pool.query(sql, function(err, result) {
     console.log("Back from DB with result:");
     console.log(result.rows);
 
+    return result;
 
 }); 
 }  
@@ -65,7 +71,8 @@ function getGuitar2() {
         console.log("Back from DB with result:");
         console.log(result.rows);
     
-    
+        return result.rows;
+
     }); 
     } 
 
@@ -83,7 +90,8 @@ function getGuitar2() {
             console.log("Back from DB with result:");
             console.log(result.rows);
         
-        
+            return result.rows;
+
         }); 
         } 
         
@@ -101,7 +109,8 @@ function getGuitar2() {
                 console.log("Back from DB with result:");
                 console.log(result.rows);
             
-            
+                return result.rows;
+
             }); 
             }  
 
@@ -119,6 +128,7 @@ function getGuitar2() {
                     console.log("Back from DB with result:");
                     console.log(result.rows);
                 
+                    return result.rows;
                 
                 }); 
                 }  
@@ -137,6 +147,7 @@ function getGuitar2() {
                         console.log("Back from DB with result:");
                         console.log(result.rows);
                     
+                        return result.rows;
                     
                     }); 
                     }  
