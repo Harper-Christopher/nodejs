@@ -75,6 +75,9 @@ input {
 
 .center {
     margin: auto;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
 }
 
 input {
@@ -87,4 +90,13 @@ input {
 
 .formErrorMessage {
     color: red;
+}
+
+.background {
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.space {
+    margin: 1rem;
 }
