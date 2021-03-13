@@ -14,8 +14,8 @@
 
   <main>
 
-<h1>Welcome <%= username %>!</h1>
-<h2>Guitar <%= guitar1 %></h2>
+<h1>Welcome !</h1>
+
 
   <div class="cartLink">
 
@@ -31,8 +31,8 @@
     <div class="guitarOne">
       <img src="photos/guitarOne.jpg" alt="Guitar One">
       <div class="priceButton">
-      <h2 class="h2Shadow"></h2>
-      <p class="price"></p>
+      <h2 class="h2Shadow"><%= res[0].guitarname %></h2>
+      <p class="price"><%= res[0].price %></p>
       <input type="hidden" name="guitar1" value="Acoustic Guitar">
       <input type="hidden" name="price1" value="700">
       <input type="submit" value="Add To Cart" class="button">
@@ -44,8 +44,8 @@
     <div class="guitarTwo">
       <img src="photos/guitarTwo.jpg" alt="Guitar Two">
       <div class="priceButton">
-      <h2 class="h2Shadow"></h2>
-      <p class="price"></p>
+      <h2 class="h2Shadow"><%= res[1].guitarname %></h2>
+      <p class="price"><%= res[1].price %></p>
       <input type="hidden" name="guitar2" value="Electric Guitar">
       <input type="hidden" name="price2" value="1200">
       <input type="submit" value="Add To Cart" class="button">
@@ -57,8 +57,8 @@
     <div class="guitarThree">
       <img src="photos/guitarThree.jpg" alt="Guitar Three">
       <div class="priceButton">
-      <h2 class="h2Shadow"></h2>
-      <p class="price"></p>
+      <h2 class="h2Shadow"><%= res[2].guitarname %></h2>
+      <p class="price"><%= res[2].price %></p>
       <input type="hidden" name="guitar3" value="Fender Guitar">
       <input type="hidden" name="price3" value="350">
       <input type="submit" value="Add To Cart" class="button">
@@ -72,8 +72,8 @@
     <div class="guitarFour">
       <img src="photos/guitarFour.jpg" alt="Guitar Four">
       <div class="priceButton">
-      <h2 class="h2Shadow"></h2>
-      <p class="price"></p>
+      <h2 class="h2Shadow"><%= res[3].guitarname %></h2>
+      <p class="price"><%= res[3].price %></p>
       <input type="hidden" name="guitar4" value="Acoustic-Electric Guitar">
       <input type="hidden" name="price4" value="400">
       <input type="submit" value="Add To Cart" class="button">
@@ -85,8 +85,8 @@
     <div class="guitarFive">
       <img src="photos/guitarFive.jpg" alt="Guitar Five">
       <div class="priceButton">
-      <h2 class="h2Shadow"></h2>
-      <p class="price"></p>
+      <h2 class="h2Shadow"><%= res[4].guitarname %></h2>
+      <p class="price"><%= res[4].price %></p>
       <input type="hidden" name="guitar5" value="Classical Guitar">
       <input type="hidden" name="price5" value="250">
       <input type="submit" value="Add To Cart" class="button">
@@ -98,8 +98,8 @@
     <div class="guitarSix">
       <img src="photos/guitarSix.jpg" alt="Guitar Six">
       <div class="priceButton">
-      <h2 class="h2Shadow"></h2>
-      <p class="price"></p>
+      <h2 class="h2Shadow"><%= res[5].guitarname %></h2>
+      <p class="price"><%= res[5].price %></p>
       <input type="hidden" name="guitar6" value="Gibson Guitar">
       <input type="hidden" name="price6" value="900">
       <input type="submit" value="Add To Cart" class="button">
