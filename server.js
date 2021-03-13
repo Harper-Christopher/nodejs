@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 const { Pool } = require("pg");
 require('dotenv').config();
 const connectionString = process.env.DATABASE_URL;
@@ -25,7 +25,7 @@ app.listen(app.get('port'), function() {
 //------Controller------//
 app.post("/guitars", function(req, res) {
     console.log("Received a request for the home page");
-     getGuitar1(res);
+    getGuitar1(res);
 
     // const name = getCurrentLoggedInUserAccount();
     // var params = {guitar1: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6, username: name};
@@ -58,12 +58,12 @@ pool.query(sql, function(err, result) {
     console.log(result.rows);
     
 
-    var guitars = JSON.parse(result.rows);
-    guitars.foreach(function(data){
+    var info = JSON.parse(result.rows);
+    info.foreach(function(data){
         console.log(data.guitarname);
     });
-    
-    res.render("guitars", {guitars: JSON.stringify(guitars) });
+
+    res.render('guitars', {info: JSON.stringify(info) });
 
 }); 
 }  
