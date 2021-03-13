@@ -30,7 +30,7 @@ app.post("/guitars", function(req, res) {
     const guitar5 = getGuitar5();
     const guitar6 = getGuitar6();
     const name = getCurrentLoggedInUserAccount();
-    var params = {guitar1: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6, username: name};
+    var params = {one: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6, username: name};
 
     console.log(name);
     console.log(guitar1);
@@ -46,130 +46,132 @@ function getCurrentLoggedInUserAccount() {
   }
 
 function getGuitar1() {
-// var sql = "SELECT * FROM guitar WHERE guitarid = 1";
+var sql = "SELECT * FROM guitar WHERE guitarid = 1";
 
-// pool.query(sql, function(err, result) {
-//     // If an error occurred...
-//     if (err) {
-//         console.log("Error in query: ")
-//         console.log(err);
-//     }
-
-//     // Log this to the console for debugging purposes.
-//     console.log("Back from DB with result:");
-//     console.log(result.rows);
-
-//     return result.rows;
-
-// }); 
-
-router.get('/guitar', function(req, res, next) {
-pool.connect(function(err, guitar, done) {
+pool.query(sql, function(err, result) {
+    // If an error occurred...
     if (err) {
-        return console.error('error fetching data from pool', err);
+        console.log("Error in query: ")
+        console.log(err);
     }
-    console.log("connected to database");
-    guitar.query('SELECT * FROM guitar WHERE guitarid = 1', function(err, result) {
-        done();
-        if (err) {
-            return console.error('error running query', err);
-        }
-        res.send(result);
-    })
-})})
+
+    // Log this to the console for debugging purposes.
+    console.log("Back from DB with result:");
+    console.log(sql);
+    console.log(result.rows);
+    
+
+    return result.rows;
+
+}); 
+
+ router.get('/guitar', function(req, res, next) {
+ pool.connect(function(err, guitar, done) {
+     if (err) {
+         return console.error('error fetching data from pool', err);
+     }
+     console.log("connected to database");
+     guitar.query('SELECT * FROM guitar WHERE guitarid = 1', function(err, result) {
+         done();
+         if (err) {
+             return console.error('error running query', err);
+         }
+         res.send(result);
+     })
+ })})
 }  
 
-function getGuitar2() {
-    var sql = "SELECT * FROM guitar WHERE guitarid = 2";
+ function getGuitar2() {
+     var sql = "SELECT * FROM guitar WHERE guitarid = 2";
     
-    pool.query(sql, function(err, result) {
-        // If an error occurred...
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-        }
+     pool.query(sql, function(err, result) {
+         // If an error occurred...
+         if (err) {
+             console.log("Error in query: ")
+             console.log(err);
+         }
     
-        // Log this to the console for debugging purposes.
-        console.log("Back from DB with result:");
-        console.log(result.rows);
+         // Log this to the console for debugging purposes.
+         console.log("Back from DB with result:");
+         console.log(result.rows);
     
-        return result.rows;
+         return result.rows;
 
-    }); 
-    } 
+     }); 
+     } 
 
-    function getGuitar3() {
-        var sql = "SELECT * FROM guitar WHERE guitarid = 3";
+     function getGuitar3() {
+         var sql = "SELECT * FROM guitar WHERE guitarid = 3";
         
-        pool.query(sql, function(err, result) {
-            // If an error occurred...
-            if (err) {
-                console.log("Error in query: ")
-                console.log(err);
-            }
+         pool.query(sql, function(err, result) {
+             // If an error occurred...
+             if (err) {
+                 console.log("Error in query: ")
+                 console.log(err);
+             }
         
-            // Log this to the console for debugging purposes.
-            console.log("Back from DB with result:");
-            console.log(result.rows);
+             // Log this to the console for debugging purposes.
+             console.log("Back from DB with result:");
+             console.log(result.rows);
         
-            return result.rows;
+             return result.rows;
 
-        }); 
-        } 
+         }); 
+         } 
         
-        function getGuitar4() {
-            var sql = "SELECT * FROM guitar WHERE guitarid = 4";
+         function getGuitar4() {
+             var sql = "SELECT * FROM guitar WHERE guitarid = 4";
             
-            pool.query(sql, function(err, result) {
-                // If an error occurred...
-                if (err) {
-                    console.log("Error in query: ")
-                    console.log(err);
-                }
+             pool.query(sql, function(err, result) {
+                 // If an error occurred...
+                 if (err) {
+                     console.log("Error in query: ")
+                     console.log(err);
+                 }
             
-                // Log this to the console for debugging purposes.
-                console.log("Back from DB with result:");
-                console.log(result.rows);
+                 // Log this to the console for debugging purposes.
+                 console.log("Back from DB with result:");
+                 console.log(result.rows);
             
-                return result.rows;
+                 return result.rows;
 
-            }); 
-            }  
+             }); 
+             }  
 
-            function getGuitar5() {
-                var sql = "SELECT * FROM guitar WHERE guitarid = 5";
+             function getGuitar5() {
+                 var sql = "SELECT * FROM guitar WHERE guitarid = 5";
                 
-                pool.query(sql, function(err, result) {
-                    // If an error occurred...
-                    if (err) {
-                        console.log("Error in query: ")
-                        console.log(err);
-                    }
+                 pool.query(sql, function(err, result) {
+                     // If an error occurred...
+                     if (err) {
+                         console.log("Error in query: ")
+                         console.log(err);
+                     }
                 
-                    // Log this to the console for debugging purposes.
-                    console.log("Back from DB with result:");
-                    console.log(result.rows);
+                     // Log this to the console for debugging purposes.
+                     console.log("Back from DB with result:");
+                     console.log(result.rows);
                 
-                    return result.rows;
+                     return result.rows;
                 
-                }); 
-                }  
+                 }); 
+                 }  
 
-                function getGuitar6() {
-                    var sql = "SELECT * FROM guitar WHERE guitarid = 6";
+                 function getGuitar6() {
+                     var sql = "SELECT * FROM guitar WHERE guitarid = 6";
                     
-                    pool.query(sql, function(err, result) {
-                        // If an error occurred...
-                        if (err) {
-                            console.log("Error in query: ")
-                            console.log(err);
-                        }
+                     pool.query(sql, function(err, result) {
+                         // If an error occurred...
+                         if (err) {
+                             console.log("Error in query: ")
+                             console.log(err);
+                         }
                     
-                        // Log this to the console for debugging purposes.
-                        console.log("Back from DB with result:");
-                        console.log(result.rows);
+                         // Log this to the console for debugging purposes.
+                         console.log("Back from DB with result:");
+                         console.log(result.rows);
                     
                         return result.rows;
                     
-                    }); 
-                    }  
+                     }); 
+                  }  
