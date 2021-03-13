@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
 const { Pool } = require("pg");
 require('dotenv').config();
 const connectionString = process.env.DATABASE_URL;
-const pool = new Pool({connectionString: connectionString,
-ssl: {
-    rejectUnauthorized: false
-}});
+const pool = new Pool(
+    {connectionString: connectionString,
+      ssl: {
+        rejectUnauthorized: false 
+      }
+});
 
 app.set('port', (process.env.PORT || 5050));
 app.use(express.static(__dirname + '/public'));
@@ -30,7 +31,7 @@ app.post("/guitars", function(req, res) {
     const guitar5 = getGuitar5();
     const guitar6 = getGuitar6();
     const name = getCurrentLoggedInUserAccount();
-    var params = {one: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6, username: name};
+    var params = {guitar1: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6, username: name};
 
     console.log(name);
     console.log(guitar1);
@@ -46,7 +47,7 @@ function getCurrentLoggedInUserAccount() {
   }
 
 function getGuitar1() {
-var sql = "SELECT * FROM guitar WHERE guitarid = 1";
+var sql = "SELECT guitarname FROM guitar WHERE guitarid = 1";
 
 pool.query(sql, function(err, result) {
     // If an error occurred...
@@ -65,24 +66,24 @@ pool.query(sql, function(err, result) {
 
 }); 
 
- router.get('/guitar', function(req, res, next) {
- pool.connect(function(err, guitar, done) {
-     if (err) {
-         return console.error('error fetching data from pool', err);
-     }
-     console.log("connected to database");
-     guitar.query('SELECT * FROM guitar WHERE guitarid = 1', function(err, result) {
-         done();
-         if (err) {
-             return console.error('error running query', err);
-         }
-         res.send(result);
-     })
- })})
+// router.get('/guitar', function(req, res, next) {
+// pool.connect(function(err, guitar, done) {
+//     if (err) {
+//         return console.error('error fetching data from pool', err);
+//     }
+//     console.log("connected to database");
+//     guitar.query('SELECT * FROM guitar WHERE guitarid = 1', function(err, result) {
+//         done();
+//         if (err) {
+//             return console.error('error running query', err);
+//         }
+//         res.send(result);
+//     })
+// })})
 }  
 
  function getGuitar2() {
-     var sql = "SELECT * FROM guitar WHERE guitarid = 2";
+     var sql = "SELECT guitarname FROM guitar WHERE guitarid = 2";
     
      pool.query(sql, function(err, result) {
          // If an error occurred...
@@ -101,7 +102,7 @@ pool.query(sql, function(err, result) {
      } 
 
      function getGuitar3() {
-         var sql = "SELECT * FROM guitar WHERE guitarid = 3";
+         var sql = "SELECT guitarname FROM guitar WHERE guitarid = 3";
         
          pool.query(sql, function(err, result) {
              // If an error occurred...
@@ -120,7 +121,7 @@ pool.query(sql, function(err, result) {
          } 
         
          function getGuitar4() {
-             var sql = "SELECT * FROM guitar WHERE guitarid = 4";
+             var sql = "SELECT guitarname FROM guitar WHERE guitarid = 4";
             
              pool.query(sql, function(err, result) {
                  // If an error occurred...
@@ -139,7 +140,7 @@ pool.query(sql, function(err, result) {
              }  
 
              function getGuitar5() {
-                 var sql = "SELECT * FROM guitar WHERE guitarid = 5";
+                 var sql = "SELECT guitarname FROM guitar WHERE guitarid = 5";
                 
                  pool.query(sql, function(err, result) {
                      // If an error occurred...
