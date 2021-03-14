@@ -25,8 +25,7 @@ app.listen(app.get('port'), function() {
 //------Controller------//
 app.post("/guitars", function(req, res) {
     console.log("Received a request for the home page");
-    getGuitar1(res);
-
+     getGuitar1(res);
     // const name = getCurrentLoggedInUserAccount();
     // var params = {guitar1: guitar1, guitar2: guitar2, guitar3: guitar3, guitar4: guitar4, guitar5: guitar5, guitar6: guitar6, username: name};
 
@@ -55,15 +54,15 @@ pool.query(sql, function(err, result) {
 
     // Log this to the console for debugging purposes.
     console.log("Back from DB with result:");
+    console.log(sql);
     console.log(result.rows);
     
-
     var info = JSON.parse(result.rows);
-    info.foreach(function(data){
-        console.log(data.guitarname);
-    });
+    info.foreach(function(info) {
+    console.log(info.price);
+});
 
-    res.render('guitars', {info: JSON.stringify(info) });
+    res.render("guitars", {info: JSON.stringify(info) });
 
 }); 
 }  
