@@ -57,12 +57,12 @@ pool.query(sql, function(err, result) {
     console.log(sql);
     console.log(result.rows);
     
-    var info = JSON.parse(result.rows);
-    info.foreach(function(info) {
-    console.log(info.price);
-});
+    var data = JSON.stringify(result.rows);
+    var detail = JSON.parse(data);
 
-    res.render("guitars", {info: JSON.stringify(info) });
+const name = "Christopher";
+
+    res.render("guitars", {info: detail, name: name});
 
 }); 
 }  
