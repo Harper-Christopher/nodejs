@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/small.css">
   <link rel="stylesheet" href="css/middle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/nodejs/server.js"></script>
 </head>
 
 <body>
@@ -18,18 +20,27 @@
   <div class="cartLink">
 
   
-<a href="cart.php">View Shopping Cart</a>
+    <form action="orders" method="GET">
+      <input id="button" type="submit" value="Orders">
+    </form>
  
   </div>
-
+  
 
   <div class="flex">
-    <form action="browse.php" method="post">
+    <form action="addOrder" method="post">
     <div class="guitarOne">
       <img src="photos/guitarOne.jpg" alt="Guitar One">
       <div class="priceButton">
       <h2 class="h2Shadow"><%= info[0].guitarname %></h2>
       <p class="price"><%= info[0].price %></p>
+      <select name="customer" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select><br>
       <input type="hidden" name="guitar1" value="Acoustic Guitar">
       <input type="hidden" name="price1" value="700">
       <input type="submit" value="Add To Cart" class="button">
@@ -37,7 +48,7 @@
     </div>
     </div>
 
-    <form action="browse.php" method="post">
+    <form action="guitars" method="post">
     <div class="guitarTwo">
       <img src="photos/guitarTwo.jpg" alt="Guitar Two">
       <div class="priceButton">
@@ -50,7 +61,7 @@
     </div>
     </div>
 
-    <form action="browse.php" method="post">
+    <form action="guitars" method="post">
     <div class="guitarThree">
       <img src="photos/guitarThree.jpg" alt="Guitar Three">
       <div class="priceButton">
@@ -65,7 +76,7 @@
   </div>
 
   <div class="flex">
-  <form action="browse.php" method="post">
+  <form action="guitars" method="post">
     <div class="guitarFour">
       <img src="photos/guitarFour.jpg" alt="Guitar Four">
       <div class="priceButton">
@@ -78,7 +89,7 @@
     </div>
     </div>
 
-    <form action="browse.php" method="post">
+    <form action="guitars" method="post">
     <div class="guitarFive">
       <img src="photos/guitarFive.jpg" alt="Guitar Five">
       <div class="priceButton">
@@ -91,7 +102,7 @@
     </div>
     </div>
 
-    <form action="browse.php" method="post">
+    <form action="guitars" method="post">
     <div class="guitarSix">
       <img src="photos/guitarSix.jpg" alt="Guitar Six">
       <div class="priceButton">

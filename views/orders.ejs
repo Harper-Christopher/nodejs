@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSE 341 | Christopher Harper | BYU-Idaho </title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/small.css">
+  <link rel="stylesheet" href="css/middle.css">
+  <script> 
+  function getResults() {
+    console.log("Requesting orders clientside from orders page");
+
+    let userid = $("#userid").val();
+    console.log("#userid " + userid);
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:5050/orderDetail&userid=' + userid,
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(xhr, status, err) {
+            console.log(xhr.responseText);
+        }
+    });
+    
+    $.post("/orderDetails"), function(data) {
+        console.log("Back form the server with:");
+        console.log(data);
+
+        $("#allOrders").append(userid);
+    }
+}
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+  <main>
+<div class="cartView">
+  <h1>Get Orders By Customer:</h1>
+
+  <div class="flex">
+    <form action="orderDetail" method="post">
+        <select name="userid" id="userid" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select>
+              <input id="button" type="submit" value="Submit">
+              <!-- <button type="button" onclick="getResults()">Get Orders</button> -->
+      <br><br>
+      </form>
+  </div>
+  <div class="cartView">
+    
+    <p class="price" id="allOrders">Empty</p>
+
+  </div>
+</main>
+
+</body>
+
+</html>
