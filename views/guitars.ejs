@@ -21,7 +21,7 @@
 
   
     <form action="orders" method="GET">
-      <input id="button" type="submit" value="Orders">
+      <input id="button" class="button" type="submit" value="Orders">
     </form>
  
   </div>
@@ -54,6 +54,13 @@
       <div class="priceButton">
       <h2 class="h2Shadow"><%= info[1].guitarname %></h2>
       <p class="price"><%= info[1].price %></p>
+      <select name="customer" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select><br>
       <input type="hidden" name="guitar2" value="Electric Guitar">
       <input type="hidden" name="price2" value="1200">
       <input type="submit" value="Add To Cart" class="button">
@@ -67,6 +74,13 @@
       <div class="priceButton">
       <h2 class="h2Shadow"><%= info[2].guitarname %></h2>
       <p class="price"><%= info[2].price %></p>
+      <select name="customer" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select><br>
       <input type="hidden" name="guitar3" value="Fender Guitar">
       <input type="hidden" name="price3" value="350">
       <input type="submit" value="Add To Cart" class="button">
@@ -82,6 +96,13 @@
       <div class="priceButton">
       <h2 class="h2Shadow"><%= info[3].guitarname %></h2>
       <p class="price"><%= info[3].price %></p>
+      <select name="customer" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select><br>
       <input type="hidden" name="guitar4" value="Acoustic-Electric Guitar">
       <input type="hidden" name="price4" value="400">
       <input type="submit" value="Add To Cart" class="button">
@@ -95,6 +116,13 @@
       <div class="priceButton">
       <h2 class="h2Shadow"><%= info[4].guitarname %></h2>
       <p class="price"><%= info[4].price %></p>
+      <select name="customer" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select><br>
       <input type="hidden" name="guitar5" value="Classical Guitar">
       <input type="hidden" name="price5" value="250">
       <input type="submit" value="Add To Cart" class="button">
@@ -108,6 +136,13 @@
       <div class="priceButton">
       <h2 class="h2Shadow"><%= info[5].guitarname %></h2>
       <p class="price"><%= info[5].price %></p>
+      <select name="customer" class="select" required>
+        <option value="">Please Select a Customer</option>
+              <option value="1"> Bob</option>
+              <option value="2"> Joseph</option>
+              <option value="3"> Avery</option>
+              <option value="4"> Jim</option>
+            </select><br>
       <input type="hidden" name="guitar6" value="Gibson Guitar">
       <input type="hidden" name="price6" value="900">
       <input type="submit" value="Add To Cart" class="button">
