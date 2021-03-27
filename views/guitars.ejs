@@ -19,9 +19,12 @@
 
   <div class="cartLink">
 
-  
+    <form action="customer" method="GET">
+      <input id="button" class="button" type="submit" value="Update Customer">
+    </form><br>
+
     <form action="orders" method="GET">
-      <input id="button" class="button" type="submit" value="Orders">
+      <input id="button" class="button" type="submit" value="Order Details">
     </form>
  
   </div>
@@ -36,19 +39,20 @@
       <p class="price"><%= info[0].price %></p>
       <select name="customer" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+              <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+              <option value='<%= customer[1].userid %>'><%= customer[1].username %> </option>
+              <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+              <option value='<%= customer[3].userid %>'><%= customer[3].username %> </option>
             </select><br>
-      <input type="hidden" name="guitar1" value="Acoustic Guitar">
-      <input type="hidden" name="price1" value="700">
+      <input type="hidden" name="guitar" value="Acoustic Guitar">
+      <input type="hidden" name="price" value="700">
+      <input type="hidden" name="guitarid" value="1">
       <input type="submit" value="Add To Cart" class="button">
     </form>
     </div>
     </div>
 
-    <form action="guitars" method="post">
+    <form action="addOrder" method="post">
     <div class="guitarTwo">
       <img src="photos/guitarTwo.jpg" alt="Guitar Two">
       <div class="priceButton">
@@ -56,19 +60,20 @@
       <p class="price"><%= info[1].price %></p>
       <select name="customer" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+              <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+              <option value='<%= customer[1].userid %>'><%= customer[1].username %></option>
+              <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+              <option value='<%= customer[3].userid %>'><%= customer[3].username %></option>
             </select><br>
-      <input type="hidden" name="guitar2" value="Electric Guitar">
-      <input type="hidden" name="price2" value="1200">
+      <input type="hidden" name="guitar" value="Electric Guitar">
+      <input type="hidden" name="price" value="1200">
+      <input type="hidden" name="guitarid" value="2">
       <input type="submit" value="Add To Cart" class="button">
     </form>
     </div>
     </div>
 
-    <form action="guitars" method="post">
+    <form action="addOrder" method="post">
     <div class="guitarThree">
       <img src="photos/guitarThree.jpg" alt="Guitar Three">
       <div class="priceButton">
@@ -76,13 +81,14 @@
       <p class="price"><%= info[2].price %></p>
       <select name="customer" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+              <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+              <option value='<%= customer[1].userid %>'><%= customer[1].username %></option>
+              <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+              <option value='<%= customer[3].userid %>'><%= customer[3].username %></option>
             </select><br>
-      <input type="hidden" name="guitar3" value="Fender Guitar">
-      <input type="hidden" name="price3" value="350">
+      <input type="hidden" name="guitar" value="Fender Guitar">
+      <input type="hidden" name="price" value="350">
+      <input type="hidden" name="guitarid" value="3">
       <input type="submit" value="Add To Cart" class="button">
     </form>
     </div>
@@ -90,7 +96,7 @@
   </div>
 
   <div class="flex">
-  <form action="guitars" method="post">
+  <form action="addOrder" method="post">
     <div class="guitarFour">
       <img src="photos/guitarFour.jpg" alt="Guitar Four">
       <div class="priceButton">
@@ -98,19 +104,20 @@
       <p class="price"><%= info[3].price %></p>
       <select name="customer" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+              <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+              <option value='<%= customer[1].userid %>'><%= customer[1].username %></option>
+              <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+              <option value='<%= customer[3].userid %>'><%= customer[3].username %></option>
             </select><br>
-      <input type="hidden" name="guitar4" value="Acoustic-Electric Guitar">
-      <input type="hidden" name="price4" value="400">
+      <input type="hidden" name="guitar" value="Acoustic-Electric Guitar">
+      <input type="hidden" name="price" value="400">
+      <input type="hidden" name="guitarid" value="4">
       <input type="submit" value="Add To Cart" class="button">
     </form>
     </div>
     </div>
 
-    <form action="guitars" method="post">
+    <form action="addOrder" method="post">
     <div class="guitarFive">
       <img src="photos/guitarFive.jpg" alt="Guitar Five">
       <div class="priceButton">
@@ -118,19 +125,20 @@
       <p class="price"><%= info[4].price %></p>
       <select name="customer" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+              <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+              <option value='<%= customer[1].userid %>'><%= customer[1].username %></option>
+              <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+              <option value='<%= customer[3].userid %>'><%= customer[3].username %></option>
             </select><br>
-      <input type="hidden" name="guitar5" value="Classical Guitar">
-      <input type="hidden" name="price5" value="250">
+      <input type="hidden" name="guitar" value="Classical Guitar">
+      <input type="hidden" name="price" value="250">
+      <input type="hidden" name="guitarid" value="5">
       <input type="submit" value="Add To Cart" class="button">
     </form>
     </div>
     </div>
 
-    <form action="guitars" method="post">
+    <form action="addOrder" method="post">
     <div class="guitarSix">
       <img src="photos/guitarSix.jpg" alt="Guitar Six">
       <div class="priceButton">
@@ -138,13 +146,14 @@
       <p class="price"><%= info[5].price %></p>
       <select name="customer" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+              <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+              <option value='<%= customer[1].userid %>'><%= customer[1].username %></option>
+              <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+              <option value='<%= customer[3].userid %>'><%= customer[3].username %></option>
             </select><br>
-      <input type="hidden" name="guitar6" value="Gibson Guitar">
-      <input type="hidden" name="price6" value="900">
+      <input type="hidden" name="guitar" value="Gibson Guitar">
+      <input type="hidden" name="price" value="900">
+      <input type="hidden" name="guitarid" value="6">
       <input type="submit" value="Add To Cart" class="button">
     </form>
     </div>

@@ -8,32 +8,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/small.css">
   <link rel="stylesheet" href="css/middle.css">
-  <script> 
-  function getResults() {
-    console.log("Requesting orders clientside from orders page");
-
-    let userid = $("#userid").val();
-    console.log("#userid " + userid);
-
-    $.ajax({
-        type: 'POST',
-        url: 'http://localhost:5050/orderDetail&userid=' + userid,
-        success: function(response) {
-            console.log(response);
-        },
-        error: function(xhr, status, err) {
-            console.log(xhr.responseText);
-        }
-    });
-    
-    $.post("/orderDetails"), function(data) {
-        console.log("Back form the server with:");
-        console.log(data);
-
-        $("#allOrders").append(userid);
-    }
-}
-  </script>
+ <script src="../public/clientside.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -48,10 +23,10 @@
     <form action="orderDetail" method="post">
         <select name="userid" id="userid" class="select" required>
         <option value="">Please Select a Customer</option>
-              <option value="1"> Bob</option>
-              <option value="2"> Joseph</option>
-              <option value="3"> Avery</option>
-              <option value="4"> Jim</option>
+        <option value='<%= customer[0].userid %>'><%= customer[0].username %></option>
+        <option value='<%= customer[1].userid %>'><%= customer[1].username %> </option>
+        <option value='<%= customer[2].userid %>'><%= customer[2].username %></option>
+        <option value='<%= customer[3].userid %>'><%= customer[3].username %> </option>
             </select>
               <input id="button" class="button" type="submit" value="Submit">
               <!-- <button type="button" onclick="getResults()">Get Orders</button> -->
