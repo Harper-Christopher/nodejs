@@ -21,16 +21,25 @@
   <div class="flex">
     
   </div>
-  <div class="cartView">
-      <h2>Order: <%= info[0].orderid %></h2>
-      <p class="price">Item: <%= info[0].guitarname %></p>
-      <p class="price">Price: $<%= info[0].price %></p>
-      <form action="deleteOrder" method="post">
-      <input type="hidden" name="orderid" value="<%= info[0].orderid %>">
-      <input id="button" class="button" type="submit" value="Delete Order">
-      </form>
-  </div>
+
   <p class="price" id="allOrders"></p>
+      <% if(info.length > 0) { %>
+      <% for(var i = 0; i < info.length; i++) { %>
+        <div class="cartView">
+          <h2>Order: <%= info[i].orderid %></h2>
+          <p class="price">Item: <%= info[i].guitarname %></p>
+          <p class="price">Price: $<%= info[i].price %></p>
+          <form action="deleteOrder" method="post">
+          <input type="hidden" name="orderid" value="<%= info[i].orderid %>">
+          <input id="button" class="button" type="submit" value="Delete Order">
+          </form>
+      </div>
+        <% } %>
+        <% } else { %>
+          <div class="cartView">
+            <p class="price" id="allOrders">Empty</p>
+          </div>
+        <% } %>
     </main>
 
 </body>
